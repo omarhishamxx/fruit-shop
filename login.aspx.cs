@@ -14,7 +14,7 @@ using System.Web.SessionState;
 
 public partial class login : System.Web.UI.Page
 {
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
     }
@@ -36,8 +36,18 @@ public partial class login : System.Web.UI.Page
 
                 if (reader.Read())
                 {
+                    string role = reader["IsAdmin"].ToString();
                     Session["username"] = uid;
-                    Response.Redirect("index.aspx");
+                    if (role == "True")
+                    {
+                        Session["isAdmin"] = true;
+                        Response.Redirect("adminpanel.aspx");
+                    }
+                    else
+                    {
+                        Session["isAdmin"] = false;
+                        Response.Redirect("index.aspx");
+                    }
                 }
                 else
                 {
@@ -50,29 +60,29 @@ public partial class login : System.Web.UI.Page
             con.Close();
         }
     }
-
-    /*protected void Login_Click(object sender, EventArgs e)
-    {
-
-
-        string uid = emailbox.Text;
-        string pass = passbox.Text;
-        con.Open();
-        String qry = "select * from [customers] where email ='" + uid + "' and password='" + pass + "' ";
-        SqlCommand cmd = new SqlCommand(qry, con);
-        SqlDataReader sdr = cmd.ExecuteReader();
-        if (sdr.Read())
+        /*protected void Login_Click(object sender, EventArgs e)
         {
-            Session["username"] = uid;
-            Response.Redirect("index.aspx");
-        }
-        else
-        {
-            Label1.Text = "incorrect";
-        }
-        con.Close();
 
 
-    }*/
+            string uid = emailbox.Text;
+            string pass = passbox.Text;
+            con.Open();
+            String qry = "select * from [customers] where email ='" + uid + "' and password='" + pass + "' ";
+            SqlCommand cmd = new SqlCommand(qry, con);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                Session["username"] = uid;
+                Response.Redirect("index.aspx");
+            }
+            else
+            {
+                Label1.Text = "incorrect";
+            }
+            con.Close();
 
+
+        }*/
+
+    
 }
