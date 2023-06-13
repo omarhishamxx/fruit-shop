@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+
+                <asp:button type="button" id="addToCart" runat="server" OnClick="AddToCart_Click" Text="Add to Cart"/>
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -94,5 +99,5 @@ public partial class buy : System.Web.UI.Page
 }
 
 
-
+    */
 

@@ -20,9 +20,8 @@
                 </div>
             </div>
             <div style="margin-left: auto;">
-                <asp:input type="number" id="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1"/>
+<asp:TextBox ID="quantity" runat="server" type="number" min="1" max="5" step="0.5" Text="1" />
                 <label for="quantityy">kilo</label>
-                <asp:button type="button" id="addToCart" runat="server" OnClick="AddToCart_Click" Text="Add to Cart"/>
             </div>
         </div>
         <div>
