@@ -17,7 +17,7 @@
         </div>
 
         <div class="img-box">
-          <img src="images/shop-img.jpg" alt="">
+          <img src="images/apple.jpg" alt="">
         </div>
         
         <div class="btn-box">
@@ -89,7 +89,7 @@
       <div class="fruit_container">
 
         <div class="box">
-          <img src="images/f-1.jpg" alt="">
+          <img src="images/orange.jpg" alt="">
 
           <div class="link_box">
 
@@ -106,7 +106,7 @@
         </div>
 
         <div class="box">
-          <img src="images/f-2.jpg" alt="">
+          <img src="images/blueberry.jpg" alt="">
 
           <div class="link_box">
 
@@ -123,7 +123,7 @@
         </div>
 
         <div class="box">
-          <img src="images/f-3.jpg" alt="">
+          <img src="images/banana.jpg" alt="">
 
           <div class="link_box">
 
@@ -140,7 +140,7 @@
         </div>
 
         <div class="box">
-          <img src="images/f-4.jpg" alt="">
+          <img src="images/apple.jpg" alt="">
 
           <div class="link_box">
             <h5>
@@ -156,7 +156,7 @@
         </div>
 
         <div class="box">
-          <img src="images/f-5.jpg" alt="">
+          <img src="images/mango.jpg" alt="">
 
           <div class="link_box">
             <h5>
@@ -170,7 +170,7 @@
         </div>
 
         <div class="box">
-          <img src="images/f-6.jpg" alt="">
+          <img src="images/strawberry.jpg" alt="">
 
           <div class="link_box">
             <h5>

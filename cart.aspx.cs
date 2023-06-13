@@ -61,51 +61,47 @@ public partial class cart : System.Web.UI.Page
 
         return cartData;
     }
-
-
-
-
-    /*protected void Page_Load(object sender, EventArgs e)
+}
+/*
+ private DataTable GetCartData()
     {
-
-
-        if (Session["CustomerId"] == null )
-        {
-
-            Response.Redirect("login.aspx");
-        }
-        else
-        {
-            //showcart();
-            
-        }
-    }
-    public void showcart()
-    {
-        int.TryParse(Session["CustomerId"].ToString(), out int sessionId);
-        int customerId = sessionId;
+        DataTable cartData = new DataTable();
 
         string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
-        using(SqlConnection connection = new SqlConnection("connectionString"))
+        using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();
-            string query = "SELECT product, quantity, total_price FROM cart WHERE customerid = @CustomerId";
+
+            int customerId = int.Parse(Session["CustomerId"].ToString());
+
+            string query = "SELECT product AS ProductName, quantity AS Quantity, total_price AS TotalPrice FROM cart WHERE customerid = @CustomerId";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@CustomerId", customerId);
 
             SqlDataReader reader = command.ExecuteReader();
-            if (reader.Read())
+
+            // Add columns to the DataTable
+            cartData.Columns.Add("ProductName", typeof(string));
+            cartData.Columns.Add("Quantity", typeof(int));
+            cartData.Columns.Add("TotalPrice", typeof(decimal));
+
+            while (reader.Read())
             {
-               lblProdName.Text = reader["product"].ToString();
-                lblProdQuan.Text = reader["quantity"].ToString();
-                lblProdPrice.Text = reader["total_price"].ToString();
+                // Add rows to the DataTable
+                cartData.Rows.Add(
+                    reader["ProductName"].ToString(),
+                    int.Parse(reader["Quantity"].ToString()),
+                    decimal.Parse(reader["TotalPrice"].ToString())
+                );
             }
 
             reader.Close();
         }
-    }*/
-}
 
+        return cartData;
+    }
+
+*/
 /*     <div style="display: flex; align-items: center;">
         <div style="border: 1px solid black; padding: 10px;">
             <h2>Cart Details</h2>
