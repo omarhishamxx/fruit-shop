@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
-  <div style="display: flex; align-items: center;">
+<div style="display: flex; align-items: center;">
     <div style="border: 1px solid black; padding: 10px;">
         <h2>Product Details</h2>
         <div style="display: flex; align-items: center;">
@@ -20,8 +20,11 @@
                 </div>
             </div>
             <div style="margin-left: auto;">
-<asp:TextBox ID="quantity" runat="server" type="number" min="1" max="5" step="0.5" Text="1" />
-                <label for="quantityy">kilo</label>
+                <form runat="server">
+                    <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1"></asp:TextBox>
+                    <label for="quantityy">kilo</label>
+                    <asp:Button type="button" ID="addToCart" runat="server" OnClick="AddToCart_Click" Text="Add to Cart" />
+                </form>
             </div>
         </div>
         <div>
@@ -32,8 +35,7 @@
             <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>
         </div>
     </div>
-</div>
-
+  </div>
 
 </asp:Content>
 

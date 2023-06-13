@@ -1,6 +1,5 @@
-﻿/*
+﻿
 
-                <asp:button type="button" id="addToCart" runat="server" OnClick="AddToCart_Click" Text="Add to Cart"/>
 
 
 using System;
@@ -61,8 +60,8 @@ public partial class buy : System.Web.UI.Page
         }
     }
 
-    protected void AddToCart_Click(object sender, EventArgs e)
-    {
+   protected void AddToCart_Click(object sender, EventArgs e)
+    {/*
         // Retrieve the product name from the page
         string productName = lblProductName.Text;
 
@@ -91,7 +90,7 @@ public partial class buy : System.Web.UI.Page
         }
 
         // Clear the quantity input field after adding to cart
-        quantity.Text = "1";
+        quantity.Text = "1";*/
     }
 
 
@@ -99,5 +98,5 @@ public partial class buy : System.Web.UI.Page
 }
 
 
-    */
+
 
