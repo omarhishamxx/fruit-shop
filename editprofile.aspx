@@ -3,26 +3,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <br >
-   <h2>Edit Profile</h2>
-    <form method="post" action="Default.aspx" runat="server">
-        <label for="txtFirstName">First Name:</label>
-        <asp:TextBox ID="txtFirstName"  placeholder="Email" runat="server" />
+        
+    <form id="form1" runat="server">
+        
+    <br >
+        <h2>Edit Profile</h2>
+        <table class="w-100">
+            <tr>
+                 <td><label for="txtFirstName">First Name:</label></td>
+                 <td><asp:TextBox ID="txtFirstName"  placeholder="firstname" runat="server" /></td>
+            </tr>
+            <tr> 
+                 <td>  <label for="txtLastName">Last Name:</label></td>
+                 <td>   <asp:TextBox ID="txtLastName"  placeholder="Lastname" runat="server" /></td>
+            </tr>
+
+            <tr>
+                 <td><label for="txtemail">E-mail:</label></td>
+                 <td><asp:TextBox ID="txtemail" TextMode="Email"  placeholder="Email" runat="server" /></td>   
+            </tr>
+
+            <tr>
+                <td> <button type="submit" class="update-button" onclick="btnEditUsername_Click()">Update</button> </td>
+                <td> <asp:Label ID="Labelmsg" runat="server" Text="" /></td>
+                <td><asp:Button ID="backButton" runat="server" Text="Back" OnClick="backButton_Click" /></td>
+            </tr>
+        </table>
+
+        <asp:Label ID="lblErrorMessage" runat="server" Text="" />
+      
+
+        
          <br >
          <br >
 
-        <label for="txtLastName">Last Name:</label>
-         <asp:TextBox ID="txtLastName"  placeholder="Email" runat="server" />
-
-        <asp:TextBox ID="test" TextMode="Email"  placeholder="Email" runat="server" />
-
-        <!-- Add other profile fields here -->
-         <asp:Label ID="Labelmsg" TextMode="Text" placeholder="Email" runat="server" />
-         <br >
-         <br >
-
-        <input type="submit" value="Save" OnClick="btnEditUsername_Click" />
+       
     </form>
-
 </asp:Content>
 
