@@ -116,7 +116,7 @@
                   <a class="nav-link" href="#">Contact Us</a>
                 </li>
 
-                 <% if (Session["username"] != null) { %>
+                 <% if (Session["CustomerId"] != null ) { %>
                   <!-- User is logged in, hide the Login/Signup tab -->
                   <li class="nav-item">
                     <a class="nav-link" href="cart.aspx">Cart</a>
