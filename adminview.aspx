@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="offset-lg-2 col-md-10 offset-md-1">
                     <div class="heading_container">
-                        <h2>Customers</h2>
+                        <h2>Admins</h2>
                     </div>
                 </div>
             </div>

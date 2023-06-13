@@ -29,8 +29,8 @@
 
 
                                     <div>
-                                         <asp:Button ID="usersbutton" runat="server"  Text="customers" OnClick="Viewcust_Click"/>
-                                         <asp:Button ID="productsButton" runat="server"  Text="products" />
+                                         <asp:Button ID="usersbutton" runat="server"  Text="customers" OnClick="adcustomerview_Click"/>
+                                         <asp:Button ID="productsButton" runat="server"  Text="products"  OnClick="adminproducts_Click" />
                                          <asp:Button ID="adminsButton" runat="server"  Text="admins" OnClick="Viewadmin_Click" />
                                          <asp:Button ID="ordersButton" runat="server"  Text="orders" />
 

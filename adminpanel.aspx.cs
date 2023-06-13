@@ -16,7 +16,7 @@ public partial class adminpanel : System.Web.UI.Page
             Response.Redirect("login.aspx");
         }
     }
-    protected void Viewcust_Click(object sender, EventArgs e)
+    protected void adcustomerview_Click(object sender, EventArgs e)
     {
         Response.Redirect("adcustomerview.aspx");
     }
@@ -24,4 +24,9 @@ public partial class adminpanel : System.Web.UI.Page
     {
         Response.Redirect("adminview.aspx");
     }
+    protected void adminproducts_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("adminproducts.aspx");
+    }
+
 }
