@@ -22,10 +22,14 @@ public partial class login : System.Web.UI.Page
     {
         string uid = emailbox.Text;
         string pass = passbox.Text;
+        int userId = 0;
+        string email = string.Empty;
+        string firstName = string.Empty;
+        string lastName = string.Empty;
 
         using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()))
         {
-            string query = "SELECT * FROM customers WHERE email = @Email AND password = @Password";
+            string query = "SELECT * FROM Customers WHERE Email = @Email AND Password = @Password";
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
                 cmd.Parameters.AddWithValue("@Email", uid);
@@ -36,8 +40,21 @@ public partial class login : System.Web.UI.Page
 
                 if (reader.Read())
                 {
+                    userId = Convert.ToInt32(reader["CustomerId"]);
+                    firstName = reader["FirstName"].ToString();
+                    lastName = reader["LastName"].ToString();
+                    email = reader["Email"].ToString();
+
+                    Session["CustomerId"] = userId;
+                    Session["FirstName"] = firstName;
+                    Session["LastName"] = lastName;
+                    Session["Email"] = email;
+
+
                     string role = reader["IsAdmin"].ToString();
-                    Session["username"] = uid;
+
+
+
                     if (role == "True")
                     {
                         Session["isAdmin"] = true;
@@ -45,8 +62,11 @@ public partial class login : System.Web.UI.Page
                     }
                     else
                     {
+
                         Session["isAdmin"] = false;
                         Response.Redirect("index.aspx");
+
+
                     }
                 }
                 else
@@ -57,32 +77,11 @@ public partial class login : System.Web.UI.Page
                 reader.Close();
             }
 
+
+
             con.Close();
         }
+
+
     }
-        /*protected void Login_Click(object sender, EventArgs e)
-        {
-
-
-            string uid = emailbox.Text;
-            string pass = passbox.Text;
-            con.Open();
-            String qry = "select * from [customers] where email ='" + uid + "' and password='" + pass + "' ";
-            SqlCommand cmd = new SqlCommand(qry, con);
-            SqlDataReader sdr = cmd.ExecuteReader();
-            if (sdr.Read())
-            {
-                Session["username"] = uid;
-                Response.Redirect("index.aspx");
-            }
-            else
-            {
-                Label1.Text = "incorrect";
-            }
-            con.Close();
-
-
-        }*/
-
-    
 }

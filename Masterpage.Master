@@ -30,6 +30,10 @@
   
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.1/js/bootstrap.min.js"></script>
+
   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -116,7 +120,7 @@
                   <a class="nav-link" href="#">Contact Us</a>
                 </li>
 
-                 <% if (Session["username"] != null) { %>
+                 <% if (Session["CustomerId"] != null ) { %>
                   <!-- User is logged in, hide the Login/Signup tab -->
                   <li class="nav-item">
                     <a class="nav-link" href="cart.aspx">Cart</a>
@@ -127,6 +131,15 @@
                   <li class="nav-item">
                    <a class="nav-link" href="logout.aspx">Logout</a>
                   </li>
+                  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Profile
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                     <a class="dropdown-item edit-profile" href="editprofile.aspx">Edit Profile</a>
+                                </div>
+                                
+                    </li>
                 <% } else { %>
                   <!-- User is not logged in, show the Login/Signup tab -->
                   <li class="nav-item">
