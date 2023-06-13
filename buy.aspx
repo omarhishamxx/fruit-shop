@@ -23,13 +23,16 @@
                 <form runat="server">
                     <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1"></asp:TextBox>
                     <label for="quantityy">kilo</label>
-                    <asp:Button type="button" ID="addToCart" runat="server" OnClick="AddToCart_Click" Text="Add to Cart" />
+                    <asp:Button type="button" ID="addToCart" runat="server" OnClick="btnAddToCart_Click" Text="Add to Cart" />
                 </form>
             </div>
         </div>
         <div>
             <label>Product ID: </label>
             <asp:Label ID="lblProductId" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="lblSuccessMessage" runat="server" Text=""></asp:Label>
         </div>
         <div>
             <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>

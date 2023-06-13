@@ -17,8 +17,12 @@ public partial class buy : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {   try 
-       { 
-        if (!IsPostBack)
+       {
+            if (Session["CustomerId"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            if (!IsPostBack)
         {
             string productId = Request.QueryString["product"];
             lblProductId.Text = productId;
@@ -60,8 +64,55 @@ public partial class buy : System.Web.UI.Page
         }
     }
 
-   protected void AddToCart_Click(object sender, EventArgs e)
-    {/*
+    protected void btnAddToCart_Click(object sender, EventArgs e)
+    {
+        string productId = lblProductId.Text;
+        string productName = lblProductName.Text;
+        string productPrice = lblProductPrice.Text;
+        int custid = Convert.ToInt32(Session["CustomerId"]);
+        int quantity = Convert.ToInt32(quantityy.Text); // Get the quantity from the text box
+
+        // Calculate the total price
+        decimal totalPrice = Convert.ToDecimal(productPrice) * quantity;
+
+        // Save the product to the cart table in the database
+        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string query = "INSERT INTO cart (customerid, product, quantity, total_price) VALUES (@custid, @ProductName, @quantity, @totalPrice)";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@custid", custid);
+                command.Parameters.AddWithValue("@ProductName", productName);
+                command.Parameters.AddWithValue("@quantity", quantity);
+                command.Parameters.AddWithValue("@totalPrice", totalPrice);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        // Display a success message
+        lblSuccessMessage.Text = "Product added to cart successfully!";
+
+        // Redirect to the cart page
+        Response.Redirect("cart.aspx");
+    
+
+    // Display a success message
+    lblSuccessMessage.Text = "Product added to cart successfully!";
+
+        // Redirect to the cart page
+        Response.Redirect("cart.aspx");
+    }
+
+
+}
+
+
+/*
         // Retrieve the product name from the page
         string productName = lblProductName.Text;
 
@@ -91,12 +142,4 @@ public partial class buy : System.Web.UI.Page
 
         // Clear the quantity input field after adding to cart
         quantity.Text = "1";*/
-    }
-
-
-
-}
-
-
-
 
