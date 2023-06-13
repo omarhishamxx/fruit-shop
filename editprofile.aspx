@@ -24,14 +24,15 @@
             </tr>
 
             <tr>
-                <td> <button type="submit" class="update-button" onclick="btnEditUsername_Click()">Update</button> </td>
+                <td> <asp:Button ID="updatebtn" type="submit" class="update-button" runat="server" OnClick="btnEditUsername_Click" text="Update"/>
+                 </td>
                 <td> <asp:Label ID="Labelmsg" runat="server" Text="" /></td>
                 <td><asp:Button ID="backButton" runat="server" Text="Back" OnClick="backButton_Click" /></td>
             </tr>
         </table>
 
         <asp:Label ID="lblErrorMessage" runat="server" Text="" />
-      
+       <asp:Label ID="Labelid" runat="server" Text="" />
 
         
          <br >

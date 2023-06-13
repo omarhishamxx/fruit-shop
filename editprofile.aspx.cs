@@ -21,7 +21,7 @@ public partial class editprofile : System.Web.UI.Page
 
             // Retrieve the user's existing profile information
             int userId = GetLoggedInUserId(); // Implement this method to get the logged-in user's ID
-           
+            Labelid.Text = "TEST";
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string query = "SELECT FirstName, LastName, Email FROM Customers WHERE CustomerId = @userId";
 
@@ -55,6 +55,7 @@ public partial class editprofile : System.Web.UI.Page
     {
         try
         {
+            Labelid.Text = "done";
             // Retrieve the updated profile information
             string FirstName = txtFirstName.Text;
             string LastName = txtLastName.Text;
@@ -62,14 +63,14 @@ public partial class editprofile : System.Web.UI.Page
 
             // Update the table with the new profile information
             int userId = GetLoggedInUserId(); // Implement this method to get the logged-in user's ID
+            Labelid.Text = userId.ToString();
 
-         
 
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()))
             {
                 con.Open();
-                string query = "UPDATE Customers SET FirstName = @FirstName, LastName = @LastName, Email = @Email WHERE CustomerId = @userId";
+                string query = "UPDATE Customers SET FirstName=@FirstName, LastName=@LastName, Email=@Email WHERE CustomerId=@userId";
                 
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
@@ -77,6 +78,7 @@ public partial class editprofile : System.Web.UI.Page
                     command.Parameters.AddWithValue("@LastName", LastName);
                     command.Parameters.AddWithValue("@Email", Email);
                     command.Parameters.AddWithValue("@userId", userId);
+
 
                     int rowsAffected = command.ExecuteNonQuery();
 
