@@ -18,17 +18,13 @@
                                        <asp:TextBox ID="price"  placeholder="price" runat="server" />
                                     </div>
                                     <div>
-                                       <asp:TextBox ID="categoryid"  placeholder="cateoryid" runat="server" />
-                                    </div>
-                                    
-                                    <div>
                                        <asp:TextBox ID="description"  placeholder="description" runat="server" />
                                     </div><div>
                                        <asp:TextBox ID="imageurl"  placeholder="imageurl" runat="server" />
                                     </div>
                                     
                                     <div>
-                                         <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"   />
+                                         <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"  text="Add Product" />
                                     </div>
                                 </div>
                             </div>

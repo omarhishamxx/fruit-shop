@@ -19,20 +19,18 @@ public partial class adminproducts : System.Web.UI.Page
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
         string productName = pname.Text;
         decimal Price = decimal.Parse(price.Text);
-        string Categoryid = categoryid.Text;
         string Description = description.Text;
         string imageURL = imageurl.Text;
 
        
         using (con)
         {
-            string insertQuery = "INSERT INTO Products (ProductName, Price, CategoryId,Description, ImageURL) VALUES (@ProductName, @Price, @CategoryId,@Description, @ImageURL)";
+            string insertQuery = "INSERT INTO Products (ProductName, Price,Description, ImageURL) VALUES (@ProductName, @Price,@Description, @ImageURL)";
             using (SqlCommand command = new SqlCommand(insertQuery, con))
             {
                 // Add parameter values to the SqlCommand
                 command.Parameters.AddWithValue("@ProductName", productName);
                 command.Parameters.AddWithValue("@Price", Price);
-                command.Parameters.AddWithValue("@CategoryId", Categoryid);
                 command.Parameters.AddWithValue("@Description", Description);
                 command.Parameters.AddWithValue("@ImageURL", imageURL);
 
