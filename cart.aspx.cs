@@ -49,7 +49,23 @@ public partial class cart : System.Web.UI.Page
             // Retrieve cart items for the customer
             DataTable cartData = GetCartData(customerId);
 
-            // Insert each cart item into the Orders table
+            // Get customer name and address from the Customers table
+            string customerName = string.Empty;
+            string customerAddress = string.Empty;
+            string customerQuery = "SELECT FirstName, Address FROM Customers WHERE CustomerId = @CustomerId";
+            SqlCommand customerCommand = new SqlCommand(customerQuery, connection);
+            customerCommand.Parameters.AddWithValue("@CustomerId", customerId);
+            SqlDataReader customerReader = customerCommand.ExecuteReader();
+
+            if (customerReader.Read())
+            {
+                customerName = customerReader["FirstName"].ToString();
+                customerAddress = customerReader["Address"].ToString();
+            }
+
+            customerReader.Close();
+
+            // Insert each cart item into the Order table
             foreach (DataRow row in cartData.Rows)
             {
                 string productName = row["ProductName"].ToString();
@@ -57,9 +73,11 @@ public partial class cart : System.Web.UI.Page
                 decimal totalPrice = decimal.Parse(row["TotalPrice"].ToString());
 
                 // Perform the insert query using a parameterized query or stored procedure
-                string query = "INSERT INTO [order] (customer_id, product, quantity, total_price) VALUES (@CustomerId, @Product, @Quantity, @TotalPrice)";
+                string query = "INSERT INTO [Order] (customer_id, customer_name, address, product, quantity, total_price) VALUES (@CustomerId, @CustomerName, @CustomerAddress, @Product, @Quantity, @TotalPrice)";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@CustomerId", customerId);
+                command.Parameters.AddWithValue("@CustomerName", customerName);
+                command.Parameters.AddWithValue("@CustomerAddress", customerAddress);
                 command.Parameters.AddWithValue("@Product", productName);
                 command.Parameters.AddWithValue("@Quantity", quantity);
                 command.Parameters.AddWithValue("@TotalPrice", totalPrice);
@@ -68,6 +86,8 @@ public partial class cart : System.Web.UI.Page
             }
         }
     }
+
+
 
     private void ClearCart(int customerId)
     {
