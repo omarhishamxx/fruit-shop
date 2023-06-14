@@ -107,6 +107,26 @@ public partial class buy : System.Web.UI.Page
       
         Response.Redirect("cart.aspx");
     }
+    protected void QuantityZeroValidator_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        decimal quantity;
+
+        if (decimal.TryParse(args.Value, out quantity))
+        {
+            if (quantity != 0)
+            {
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
+        }
+        else
+        {
+            args.IsValid = false;
+        }
+    }
 
 
 }
