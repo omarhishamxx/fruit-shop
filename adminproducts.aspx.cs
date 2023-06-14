@@ -16,8 +16,15 @@ public partial class adminproducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["isAdmin"] == null || !(bool)Session["isAdmin"])
+        {
+            // Redirect the user to the login page or any other appropriate page
+            Response.Redirect("login.aspx");
+        }
     }
-    protected void Submit_Click(object sender, EventArgs e)
+    protected void Back_Click(object sender, EventArgs e)
+    { Response.Redirect("adminpanel.aspx"); }
+        protected void Submit_Click(object sender, EventArgs e)
     {
         string productName = pname.Text;
         decimal Price = decimal.Parse(price.Text);

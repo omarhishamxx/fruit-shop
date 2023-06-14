@@ -38,6 +38,7 @@
                                     
                                     <div>
                                          <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"  text="Add " />
+                                        <asp:Button ID="back" runat="server" OnClick="Back_Click" Width="184px"  text="Back " />
                                     </div>
                                      <div>
                                 <asp:Label ID="successLabel" runat="server" Visible="false" Text="Product added successfully!" CssClass="success-message" />
