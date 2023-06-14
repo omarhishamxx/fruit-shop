@@ -76,3 +76,7 @@ C:\Users\Omar Hisham\Desktop\git uploads\fruit-shop\obj\Debug\web project asp.cs
 C:\Users\Omar Hisham\Desktop\git uploads\fruit-shop\obj\Debug\web project asp.csproj.CoreCompileInputs.cache
 C:\Users\Omar Hisham\Desktop\git uploads\fruit-shop\obj\Debug\web project asp.dll
 C:\Users\Omar Hisham\Desktop\git uploads\fruit-shop\obj\Debug\web project asp.pdb
+C:\Users\lenovo\Desktop\fruit\fruit-shop\obj\Debug\web project asp.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\fruit\fruit-shop\obj\Debug\web project asp.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\fruit\fruit-shop\obj\Debug\web project asp.dll
+C:\Users\lenovo\Desktop\fruit\fruit-shop\obj\Debug\web project asp.pdb
