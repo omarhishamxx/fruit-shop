@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.IO;
+using System.Globalization;
+
 
 
 public partial class adminproducts : System.Web.UI.Page
@@ -16,36 +19,64 @@ public partial class adminproducts : System.Web.UI.Page
     }
     protected void Submit_Click(object sender, EventArgs e)
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
         string productName = pname.Text;
         decimal Price = decimal.Parse(price.Text);
         string Description = description.Text;
-        string imageURL = imageurl.Text;
 
-       
-        using (con)
+        // Check if an image file was uploaded
+        if (imageUpload.HasFile)
         {
-            string insertQuery = "INSERT INTO Products (ProductName, Price,Description, ImageURL) VALUES (@ProductName, @Price,@Description, @ImageURL)";
+            // Specify the directory to save the uploaded images
+            string uploadDirectory = Server.MapPath("~/images/");
+
+            // Get the filename of the uploaded image
+            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageUpload.FileName);
+
+            // Save the image to the specified directory
+            string filePath = Path.Combine(uploadDirectory, fileName);
+            imageUpload.SaveAs(filePath);
+
+            // Generate the image URL based on the saved file
+            string imageURL = "images/" + fileName;
+
+            // Insert the product into the database
+            InsertProduct(productName, Price, Description, imageURL);
+
+            successLabel.Visible = true;
+            ClearFields();
+        }
+        else
+        {
+            // If no image file was uploaded, display an error message or handle it as desired
+        }
+    }
+
+    private void InsertProduct(string productName, decimal price, string description, string imageURL)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
+        string insertQuery = "INSERT INTO Products (ProductName, Price, Description, ImageURL) VALUES (@ProductName, @Price, @Description, @ImageURL)";
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
             using (SqlCommand command = new SqlCommand(insertQuery, con))
             {
-                // Add parameter values to the SqlCommand
                 command.Parameters.AddWithValue("@ProductName", productName);
-                command.Parameters.AddWithValue("@Price", Price);
-                command.Parameters.AddWithValue("@Description", Description);
+                command.Parameters.AddWithValue("@Price", price);
+                command.Parameters.AddWithValue("@Description", description);
                 command.Parameters.AddWithValue("@ImageURL", imageURL);
 
-                // Open the connection
                 con.Open();
-
-                // Execute the INSERT statement
                 command.ExecuteNonQuery();
-
-                // Close the connection
-                con.Close();
             }
         }
-
-        // Optionally, you can redirect the user to a different page after the insertion
-        // Response.Redirect("success.html");
     }
+
+    private void ClearFields()
+    {
+        pname.Text = string.Empty;
+        price.Text = string.Empty;
+        description.Text = string.Empty;
+        imageUpload.Dispose(); 
+    }
+
 }

@@ -20,12 +20,15 @@
                                     <div>
                                        <asp:TextBox ID="description"  placeholder="description" runat="server" />
                                     </div><div>
-                                       <asp:TextBox ID="imageurl"  placeholder="imageurl" runat="server" />
+                                       <asp:FileUpload ID="imageUpload" runat="server" />
                                     </div>
                                     
                                     <div>
                                          <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"  text="Add Product" />
                                     </div>
+                                     <div>
+                                <asp:Label ID="successLabel" runat="server" Visible="false" Text="Product added successfully!" CssClass="success-message" />
+                            </div>
                                 </div>
                             </div>
                         </form>
