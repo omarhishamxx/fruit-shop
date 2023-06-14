@@ -3,10 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <center>
-<div style="display: flex; align-items: center;">
-    <div style="border: 1px solid black; padding: 10px;">
-        <h2>Product Details</h2>
+  
+
+  <section class="contact_section layout_padding">
+               
+                        <h2>Product</h2>
+                 
+                  
+        <br>
         <div style="display: flex; align-items: center;">
             <asp:Image ID="imgProduct" runat="server" Height="200px" Width="200px" style="margin-right: 10px;" />
             <div>
@@ -18,14 +22,15 @@
                     <label>Product Price: </label>
                     <asp:Label ID="lblProductPrice" runat="server" Text=""></asp:Label>
                 </div>
-            </div>
-            <div style="margin-left: auto;">
+                <div>
                 <form runat="server">
-                    <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1"></asp:TextBox>
-                    <label for="quantityy">kilo</label>
+ <label for="quantityy" style="display: inline;">Kilo:</label>
+    <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1" style="display: inline;"></asp:TextBox>
                     <asp:Button type="button" ID="addToCart" runat="server" OnClick="btnAddToCart_Click" Text="Add to Cart" />
                 </form>
             </div>
+            </div>
+           
         </div>
         <div>
             <label>Product ID: </label>
@@ -37,8 +42,8 @@
         <div>
             <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>
         </div>
-    </div>
+    </>
   </div>
-      </center>
+ </section>     
 </asp:Content>
 
