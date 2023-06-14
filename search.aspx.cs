@@ -22,7 +22,7 @@ public partial class search : System.Web.UI.Page
 
         using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()))
         {
-            string query = "SELECT * FROM Products WHERE ProductName, ImageUrl,Description , Price LIKE @SearchTerm";
+            string query = "SELECT * FROM Products WHERE ProductName LIKE @SearchTerm";
 
             using (SqlCommand command = new SqlCommand(query, con))
 
