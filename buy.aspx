@@ -24,9 +24,11 @@
                 </div>
                 <div>
                 <form runat="server">
- <label for="quantityy" style="display: inline;">Kilo:</label>
-    <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1" style="display: inline;"></asp:TextBox>
-                    <asp:Button type="button" ID="addToCart" runat="server" OnClick="btnAddToCart_Click" Text="Add to Cart" />
+                      <label for="quantityy" style="display: inline;">Kilo:</label>
+                      <asp:TextBox type="number" ID="quantityy" runat="server" name="quantity" min="1" max="5" step="0.5" value="1" style="display: inline;"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="quantityValidator" ControlToValidate="quantityy" ErrorMessage="Quantity is required." runat="server" ForeColor="Red" Display="Dynamic" />
+                      <asp:CustomValidator ID="quantityZeroValidator" ControlToValidate="quantityy" ErrorMessage="Quantity cannot be zero." OnServerValidate="QuantityZeroValidator_ServerValidate" runat="server" ForeColor="Red" Display="Dynamic" />
+                      <asp:Button type="button" ID="addToCart" runat="server" OnClick="btnAddToCart_Click" Text="Add to Cart" />
                 </form>
             </div>
             </div>
