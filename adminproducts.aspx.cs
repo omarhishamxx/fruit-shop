@@ -12,6 +12,8 @@ using System.Globalization;
 
 
 
+
+
 public partial class adminproducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -57,10 +59,22 @@ public partial class adminproducts : System.Web.UI.Page
             // If no image file was uploaded, display an error message or handle it as desired
         }
     }
-    protected void FileUploadValidator_ServerValidate(object source, ServerValidateEventArgs args)
-    {
+ 
+        protected void FileUploadValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+        bool isFileValid = imageUpload.HasFile && imageUpload.PostedFile.ContentType == "image/jpg";
         args.IsValid = imageUpload.HasFile;
-    }
+
+            if (!args.IsValid)
+            {
+                fileUploadError.Visible = true;
+            }
+            else
+            {
+                fileUploadError.Visible = false;
+            }
+        }
+    
 
     private void InsertProduct(string productName, decimal price, string description, string imageURL)
     {

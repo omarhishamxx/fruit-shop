@@ -38,7 +38,9 @@
                                           <asp:RequiredFieldValidator ID="Validator2" ControlToValidate="description" ErrorMessage=" required text field" runat="server" ForeColor="Red" />
                                     </div><div>
                                        <asp:FileUpload ID="imageUpload" runat="server" />
+                                        <asp:RegularExpressionValidator ID="fileFormatValidator" ControlToValidate="imageUpload" ErrorMessage="Only JPG files are allowed." ValidationExpression="^.*\.(jpg|JPG)$" runat="server" ForeColor="Red" Display="Dynamic" />
                                         <asp:CustomValidator ID="fileUploadValidator" ControlToValidate="imageUpload" ErrorMessage="Please select a file to upload." OnServerValidate="FileUploadValidator_ServerValidate" runat="server" ForeColor="Red" Display="Dynamic" />
+                                        <asp:Label ID="fileUploadError" runat="server" ForeColor="Red" Visible="false" text="please upload an image"/>
                                     </div>
                                     <br>
                                     
