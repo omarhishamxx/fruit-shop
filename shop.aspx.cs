@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string query = "SELECT ProductName, ImageUrl,Description , Price FROM Products";
+        string query = "SELECT ProductID, ProductName, ImageUrl, Description, Price FROM Products";
 
         using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString()))
         {
@@ -26,6 +26,7 @@ public partial class _Default : System.Web.UI.Page
 
             while (reader.Read())
             {
+                int productId = Convert.ToInt32(reader["ProductID"]);
                 string productName = reader["ProductName"].ToString();
                 string imageUrl = reader["ImageUrl"].ToString();
                 string price = reader["Price"].ToString();
@@ -57,7 +58,7 @@ public partial class _Default : System.Web.UI.Page
                 linkBox.Controls.Add(descriptionLabel);
 
                 HyperLink buyNowLink = new HyperLink();
-                buyNowLink.NavigateUrl = "buy.aspx?product=2";
+                buyNowLink.NavigateUrl = "buy.aspx?product=" + productId;
                 buyNowLink.Text = "Buy Now";
                 linkBox.Controls.Add(buyNowLink);
 
@@ -70,4 +71,5 @@ public partial class _Default : System.Web.UI.Page
             reader.Close();
         }
     }
+
 }

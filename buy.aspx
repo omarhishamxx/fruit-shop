@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  
+  <center>
 <div style="display: flex; align-items: center;">
     <div style="border: 1px solid black; padding: 10px;">
         <h2>Product Details</h2>
@@ -39,6 +39,6 @@
         </div>
     </div>
   </div>
-
+      </center>
 </asp:Content>
 

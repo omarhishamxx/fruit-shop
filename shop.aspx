@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <asp:Panel ID="fruit_container" CssClass="fruit_container" runat="server" >
                 
-                <!-- Products will be dynamically inserted here -->
+                
             </asp:Panel>
         </div>
 
