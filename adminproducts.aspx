@@ -3,7 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h2>ADD Product</h2>
+    <section class="contact_section layout_padding">
+               <div class="row">
+                <div class="offset-lg-2 col-md-10 offset-md-1">
+                    <div class="heading_container">
+                        
+                        <h2 >
+                            Add Product
+                        </h2>
+                    </div>
+                </div>
+            </div>
    
         <div class="layout_padding2-top">
                 <div class="row">
@@ -14,17 +24,22 @@
                                     <div>
                                        <asp:TextBox ID="pname"  placeholder="pname" runat="server" />
                                     </div>
+                                    <br>
                                     <div>
                                        <asp:TextBox ID="price"  placeholder="price" runat="server" />
                                     </div>
+                                    <br>
                                     <div>
                                        <asp:TextBox ID="description"  placeholder="description" runat="server" />
-                                    </div><div>
+                                    </div>
+                                    <br>
+                                    <div>
                                        <asp:TextBox ID="imageurl"  placeholder="imageurl" runat="server" />
                                     </div>
+                                    <br>
                                     
                                     <div>
-                                         <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"  text="Add Product" />
+                                         <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Width="184px"  text="Add " />
                                     </div>
                                 </div>
                             </div>
@@ -33,6 +48,7 @@
                    
                 </div>
             </div>
+         </section>
         
 </asp:Content>
 
