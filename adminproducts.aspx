@@ -23,14 +23,19 @@
                                 <div>
                                     <div>
                                        <asp:TextBox ID="pname"  placeholder="pname" runat="server" />
+                                            <asp:RequiredFieldValidator ID="Validator" ControlToValidate="pname" ErrorMessage=" required text field" runat="server" ForeColor="Red" />
                                     </div>
                                     <br>
                                     <div>
                                        <asp:TextBox ID="price"  placeholder="price" runat="server" />
+                                        <asp:RegularExpressionValidator ID="regexValidator" runat="server" ControlToValidate="price"
+                                             ErrorMessage="Please enter a valid number" ValidationExpression="^\d+(\.\d+)?$" />
+                                          <asp:RequiredFieldValidator ID="Validator1" ControlToValidate="price" ErrorMessage=" required text field" runat="server" ForeColor="Red" />
                                     </div>
                                     <br>
                                     <div>
                                        <asp:TextBox ID="description"  placeholder="description" runat="server" />
+                                          <asp:RequiredFieldValidator ID="Validator2" ControlToValidate="description" ErrorMessage=" required text field" runat="server" ForeColor="Red" />
                                     </div><div>
                                        <asp:FileUpload ID="imageUpload" runat="server" />
                                     </div>

@@ -29,10 +29,10 @@
 
 
                                     <div>
-                                         <asp:Button ID="usersbutton" runat="server"  Text="customers" OnClick="adcustomerview_Click"/>
-                                         <asp:Button ID="productsButton" runat="server"  Text="products"  OnClick="adminproducts_Click" />
+                                         <asp:Button ID="usersbutton" runat="server"  Text="Veiw Customers" OnClick="adcustomerview_Click"/>
+                                         <asp:Button ID="productsButton" runat="server"  Text="Veiw Products"  OnClick="adminproducts_Click" />
                                          
-                                         <asp:Button ID="ordersButton" runat="server"  Text="orders" OnClick="adminview_Click"/>
+                                         <asp:Button ID="ordersButton" runat="server"  Text="Veiw Orders" OnClick="adminview_Click"/>
 
                                          
                                     </div>
