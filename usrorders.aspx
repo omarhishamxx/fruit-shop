@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeFile="adminvieworders.aspx.cs" Inherits="adminvieworders" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeFile="usrorders.aspx.cs" Inherits="usrorders" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<section class="contact_section layout_padding">
+    <section class="contact_section layout_padding">
         <form runat="server">
             <div class="container-fluid">
                 <div class="row">
                     <div class="offset-lg-2 col-md-10 offset-md-1">
                         <div class="heading_container">
-                            <h2>Admins</h2>
+                            <h2>Orders</h2>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                                             <asp:BoundField DataField="address" HeaderText="Address" />
                                             <asp:BoundField DataField="quantity" HeaderText="Quantity" />
                                             <asp:BoundField DataField="total_price" HeaderText="Total Price" />
-                                            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" DeleteText="Done" />
+                                            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" DeleteText="Delete order" />
                                         </Columns>
                                     </asp:GridView>
                                     <br />

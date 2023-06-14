@@ -4,28 +4,25 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
-public partial class adminvieworders : System.Web.UI.Page
+
+public partial class usrorders : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["isAdmin"] == null || !(bool)Session["isAdmin"])
-        {
-            // Redirect the user to the login page or any other appropriate page
-            Response.Redirect("login.aspx");
-        }
         if (!IsPostBack)
         {
             BindOrders();
         }
     }
-
     private void BindOrders()
     {
+        int customerId = int.Parse(Session["CustomerId"].ToString());
         string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
-        string query = "SELECT order_id, customer_name, product, address, quantity, total_price FROM [order]";
+        string query = "SELECT order_id, customer_name, product, address, quantity, total_price FROM [order] Where customer_id=@customerId ";
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@customerId", customerId);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -38,7 +35,7 @@ public partial class adminvieworders : System.Web.UI.Page
 
     protected void backButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("adminpanel.aspx");
+        Response.Redirect("index.aspx");
     }
 
     protected void customersGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)

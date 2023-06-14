@@ -20,6 +20,10 @@ public partial class adminpanel : System.Web.UI.Page
     {
         Response.Redirect("adcustomerview.aspx");
     }
+    protected void adminview_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("adminvieworders.aspx");
+    }
     protected void Viewadmin_Click(object sender, EventArgs e)
     {
         Response.Redirect("adminview.aspx");

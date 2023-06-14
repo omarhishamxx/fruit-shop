@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
-     <section class="contact_section layout_padding">
+        <section class="contact_section layout_padding">
         <form runat="server">
         <div class="container-fluid">
             <div class="row">
@@ -30,11 +30,12 @@
                                 </asp:GridView>
                                 <br />
                                 <asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click" />
+                                 <asp:Button ID="backButton" runat="server" Text="Back" OnClick="backButton_Click" />
                                 <asp:Label ID="lblOrderStatus" runat="server" Text="" Visible="false"></asp:Label>
 
                                 <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
                                 <br />
-                            
+
                             </div>
                         </div>
                     </div>
@@ -43,6 +44,5 @@
         </div>
             </form>
     </section>
-
       
 </asp:Content>
