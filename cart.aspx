@@ -29,6 +29,9 @@
                                     </Columns>
                                 </asp:GridView>
                                 <br />
+                                <asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click" />
+                                <asp:Label ID="lblOrderStatus" runat="server" Text="" Visible="false"></asp:Label>
+
                                 <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
                                 <br />
                             
