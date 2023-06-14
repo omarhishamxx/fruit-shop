@@ -57,6 +57,10 @@ public partial class adminproducts : System.Web.UI.Page
             // If no image file was uploaded, display an error message or handle it as desired
         }
     }
+    protected void FileUploadValidator_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = imageUpload.HasFile;
+    }
 
     private void InsertProduct(string productName, decimal price, string description, string imageURL)
     {

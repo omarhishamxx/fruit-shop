@@ -38,6 +38,7 @@
                                           <asp:RequiredFieldValidator ID="Validator2" ControlToValidate="description" ErrorMessage=" required text field" runat="server" ForeColor="Red" />
                                     </div><div>
                                        <asp:FileUpload ID="imageUpload" runat="server" />
+                                        <asp:CustomValidator ID="fileUploadValidator" ControlToValidate="imageUpload" ErrorMessage="Please select a file to upload." OnServerValidate="FileUploadValidator_ServerValidate" runat="server" ForeColor="Red" Display="Dynamic" />
                                     </div>
                                     <br>
                                     
