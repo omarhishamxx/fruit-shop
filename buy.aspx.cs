@@ -70,12 +70,12 @@ public partial class buy : System.Web.UI.Page
         string productName = lblProductName.Text;
         string productPrice = lblProductPrice.Text;
         int custid = Convert.ToInt32(Session["CustomerId"]);
-        int quantity = Convert.ToInt32(quantityy.Text); // Get the quantity from the text box
+        int quantity = Convert.ToInt32(quantityy.Text); 
 
-        // Calculate the total price
+        
         decimal totalPrice = Convert.ToDecimal(productPrice) * quantity;
 
-        // Save the product to the cart table in the database
+       
         string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         string query = "INSERT INTO cart (customerid, product, quantity, total_price) VALUES (@custid, @ProductName, @quantity, @totalPrice)";
 
@@ -94,17 +94,17 @@ public partial class buy : System.Web.UI.Page
             }
         }
 
-        // Display a success message
+       
         lblSuccessMessage.Text = "Product added to cart successfully!";
 
-        // Redirect to the cart page
+        
         Response.Redirect("cart.aspx");
     
 
-    // Display a success message
+    
     lblSuccessMessage.Text = "Product added to cart successfully!";
 
-        // Redirect to the cart page
+      
         Response.Redirect("cart.aspx");
     }
 
